@@ -1,0 +1,16 @@
+logging:
+  level: debug
+
+filebeat.inputs:
+  - type: http_endpoint
+    index: logs-http
+    enabled: true
+    listen_address: 0.0.0.0
+    listen_port: 8080
+
+output.elasticsearch:
+  hosts: 'https://172.18.0.2:9200'
+  username: 'elastic'
+  password: '+YhZcsXXQFwM-da7uo+P'
+  ssl:
+    certificate_authorities: ['${path.config}/http_ca.crt']
